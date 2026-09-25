@@ -660,7 +660,28 @@ footer {
   background:#e87343;
 }
 
-.visit-link { display:inline-flex; gap:18px; padding:14px 0; font-size:14px; font-weight:700; text-underline-offset:4px; }
+.visit-link {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  min-height:52px;
+  margin:0 20px 20px;
+  padding:15px 20px;
+  border:2px solid #e87343;
+  border-radius:6px;
+  background:#e87343;
+  color:#1a2631;
+  font-size:16px;
+  font-weight:800;
+  text-decoration:none;
+  transition:background .2s,border-color .2s;
+}
+.visit-link:hover {
+  background:#fa956a;
+  border-color:#fa956a;
+}
+.visit-link span { font-size:23px; line-height:1; }
 .preview-hint:focus-visible,.visit-link:focus-visible { outline:3px solid #e87343; outline-offset:4px; }
 .project:hover video { transform:none; }
 @media(max-width:760px) {
@@ -674,3 +695,64 @@ footer {
   :root { scroll-behavior:auto; }
   *,*::before,*::after { transition:none!important; }
 }
+
+/* Give each project and its actions a clear visual boundary. */
+.project {
+  min-width:0;
+  background:#fffdf8;
+  border:1px solid #d5d4ce;
+  border-radius:10px;
+  overflow:hidden;
+}
+.project .image-frame {
+  border:0;
+  border-bottom:1px solid #d5d4ce;
+}
+.project-info {
+  margin:0 20px;
+  padding:22px 0 20px;
+  border-bottom:0;
+  gap:16px;
+}
+.project-type { color:#965036; line-height:1.5; }
+.project h3 { margin-top:8px; line-height:1.2; }
+.preview-hint {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:13px 18px;
+  border:2px solid #fff;
+  border-radius:6px;
+  background:#1a2631;
+  color:#fff;
+  font-size:15px;
+  line-height:1.2;
+  box-shadow:0 3px 12px #0003;
+}
+.project:hover .preview-hint,
+.project:focus-within .preview-hint {
+  background:#1a2631;
+  color:#fff;
+}
+.preview-hint:hover,
+.preview-hint[aria-pressed="true"] {
+  background:#e87343!important;
+  color:#1a2631!important;
+}
+.section-heading p {
+  padding-left:18px;
+  border-left:3px solid #e87343;
+  color:#444e55;
+  font-size:16px;
+  line-height:1.6;
+}
+.about p { font-size:18px; color:#e0e4e6; }
+.about .text-link {
+  padding:15px 20px;
+  border:0;
+  border-radius:6px;
+  background:#e87343;
+  color:#1a2631;
+}
+.about .text-link:hover { background:#fa956a; }
