@@ -167,20 +167,10 @@ h1 em {
   transform:translateY(-2px);
 }
 
-.hero-mark {
-  font-weight:900;
-  font-size:clamp(190px,31vw,450px);
-  letter-spacing:-.15em;
-  line-height:1;
-  color:#e8e3d9;
-  white-space:nowrap;
-  transform:rotate(-8deg) translateX(-8%);
-  user-select:none;
-}
-
-.hero-mark span {
-  color:#ecb09a;
-}
+.hero-copy { flex:1; min-width:0; }
+.hero h1 { font-size:clamp(48px,6vw,82px); }
+.hero-portrait { flex:0 0 34%; max-width:380px; margin:40px 0; border-bottom:6px solid #e87343; background:#e8e3d9; }
+.hero-portrait img { width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center 20%; }
 
 .work {
   padding-top:95px;
@@ -651,27 +641,6 @@ footer {
   transform:scale(1.035);
 }
 
-@media(prefers-reduced-motion:reduce) {
-  .image-frame video {
-    display:none;
-  }
-  .image-frame:has(video) {
-    background-size:cover;
-    background-position:top;
-  }
-  .project:nth-child(1) .image-frame {
-    background-image:url('usa-site.jpg');
-  }
-  .project:nth-child(2) .image-frame {
-    background-image:url('900-site.jpg');
-  }
-  .project:nth-child(3) .image-frame {
-    background-image:url('valeo-site.jpg');
-  }
-  .project:nth-child(4) .image-frame {
-    background-image:url('suds-site.jpg');
-  }
-}
 
 .preview-hint {
   position:absolute;
@@ -682,15 +651,26 @@ footer {
   padding:10px 13px;
   font-size:12px;
   font-weight:800;
-  pointer-events:none;
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
 }
 
 .project:hover .preview-hint,.project:focus-within .preview-hint {
   background:#e87343;
 }
 
-@media(hover:none) {
-  .preview-hint {
-    display:none;
-  }
+.visit-link { display:inline-flex; gap:18px; padding:14px 0; font-size:14px; font-weight:700; text-underline-offset:4px; }
+.preview-hint:focus-visible,.visit-link:focus-visible { outline:3px solid #e87343; outline-offset:4px; }
+.project:hover video { transform:none; }
+@media(max-width:760px) {
+  .hero { flex-direction:column; align-items:stretch; gap:0; padding-top:32px; padding-bottom:40px; }
+  .hero-copy { padding:24px 0 30px; }
+  .hero-portrait { order:-1; width:150px; margin:0; }
+  .hero h1 { font-size:clamp(48px,10vw,76px); }
+  .eyebrow { flex-wrap:wrap; font-size:10px; gap:8px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  :root { scroll-behavior:auto; }
+  *,*::before,*::after { transition:none!important; }
 }
